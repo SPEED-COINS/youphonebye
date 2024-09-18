@@ -1,0 +1,29 @@
+# YouPhoneBye
+
+This project aims to provide a parental control system that allows users to monitor and manage activities on Android devices.
+
+## Features
+- **Message monitoring:** Track SMS and messaging apps.
+- **Call logs:** Monitor incoming and outgoing calls.
+- **Location tracking:** View the device’s location in real-time.
+- **App control:** Control app usage on the target device.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Ensure that you have the following tools installed on your machine:
+- Android Studio: [Download Android Studio](https://developer.android.com/studio)
+- Java Development Kit (JDK) 8 or higher: [Download JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- Git: [Download Git](https://git-scm.com/)
+- Tasker app (for Android devices): Available on Google Play Store
+
+### Clone the Repository
+
+To clone this repository, run the following command in your terminal:
+
+```bash
+git clone git@github.com:SPEED-COINS/youphonebye.git
+cd youphonebye
