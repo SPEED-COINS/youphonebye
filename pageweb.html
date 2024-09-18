@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | لوحة التحكم</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f9;
+        }
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        nav {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #4a90e2;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .language-toggle {
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    Dashboard | لوحة التحكم
+</header>
+
+<div class="container">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <a href="#section1">Home | الرئيسية</a>
+        <a href="#section2">Reports | التقارير</a>
+        <a href="#section3">Settings | الإعدادات</a>
+        <a href="#section4">Support | الدعم</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main" id="main-content">
+        <div class="dashboard-header">
+            <h2 id="dashboard-title">Welcome to your Dashboard | مرحبًا بك في لوحة التحكم</h2>
+            <button class="language-toggle" onclick="toggleLanguage()">عربي / English</button>
+        </div>
+
+        <div class="card" id="section1">
+            <h3 id="section1-title">Overview | نظرة عامة</h3>
+            <p id="section1-content">Here you can find an overview of your performance metrics. | هنا يمكنك العثور على نظرة عامة على مقاييس الأداء الخاصة بك.</p>
+        </div>
+
+        <div class="card" id="section2">
+            <h3 id="section2-title">Reports | التقارير</h3>
+            <p id="section2-content">Check the detailed reports of your activities. | تحقق من التقارير المفصلة لأنشطتك.</p>
+        </div>
+
+        <div class="card" id="section3">
+            <h3 id="section3-title">Settings | الإعدادات</h3>
+            <p id="section3-content">Manage your account and system settings. | قم بإدارة حسابك وإعدادات النظام.</p>
+        </div>
+
+        <div class="card" id="section4">
+            <h3 id="section4-title">Support | الدعم</h3>
+            <p id="section4-content">Need help? Contact our support team. | بحاجة إلى مساعدة؟ تواصل مع فريق الدعم الخاص بنا.</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer" id="footer">
+    &copy; 2024 Dashboard Project. جميع الحقوق محفوظة.
+</footer>
+
+<script>
+    const translations = {
+        en: {
+            header: "Dashboard",
+            sidebar: {
+                home: "Home",
+                reports: "Reports",
+                settings: "Settings",
+                support: "Support"
+            },
+            title: "Welcome to your Dashboard",
+            overview: "Overview",
+            overviewContent: "Here you can find an overview of your performance metrics.",
+            reports: "Reports",
+            reportsContent: "Check the detailed reports of your activities.",
+            settings: "Settings",
+            settingsContent: "Manage your account and system settings.",
+            support: "Support",
+            supportContent: "Need help? Contact our support team.",
+            footer: "&copy; 2024 Dashboard Project. All rights reserved."
+        },
+        ar: {
+            header: "لوحة التحكم",
+            sidebar: {
+                home: "الرئيسية",
+                reports: "التقارير",
+                settings: "الإعدادات",
+                support: "الدعم"
+            },
+            title: "مرحبًا بك في لوحة التحكم",
+            overview: "نظرة عامة",
+            overviewContent: "هنا يمكنك العثور على نظرة عامة على مقاييس الأداء الخاصة بك.",
+            reports: "التقارير",
+            reportsContent: "تحقق من التقارير المفصلة لأنشطتك.",
+            settings: "الإعدادات",
+            settingsContent: "قم بإدارة حسابك وإعدادات النظام.",
+            support: "الدعم",
+            supportContent: "بحاجة إلى مساعدة؟ تواصل مع فريق الدعم الخاص بنا.",
+            footer: "&copy; 2024 مشروع لوحة التحكم. جميع الحقوق محفوظة."
+        }
+    };
+
+    let currentLanguage = 'en';
+
+    function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+        updateContent();
+    }
+
+    function updateContent() {
+        const lang = translations[currentLanguage];
+        document.getElementById('header').innerText = lang.header + " | " + translations['ar'].header;
+        document.getElementById('dashboard-title').innerText = lang.title + " | " + translations['ar'].title;
+        document.getElementById('section1-title').innerText = lang.overview + " | " + translations['ar'].overview;
+        document.getElementById('section1-content').innerText = lang.overviewContent + " | " + translations['ar'].overviewContent;
+        document.getElementById('section2-title').innerText = lang.reports + " | " + translations['ar'].reports;
+        document.getElementById('section2-content').innerText = lang.reportsContent + " | " + translations['ar'].reportsContent;
+        document.getElementById('section3-title').innerText = lang.settings + " | " + translations['ar'].settings;
+        document.getElementById('section3-content').innerText = lang.settingsContent + " | " + translations['ar'].settingsContent;
+        document.getElementById('section4-title').innerText = lang.support + " | " + translations['ar'].support;
+        document.getElementById('section4-content').innerText = lang.supportContent + " | " + translations['ar'].supportContent;
+        document.getElementById('footer').innerHTML = lang.footer;
+    }
+</script>
+
+</body>
+</html>
